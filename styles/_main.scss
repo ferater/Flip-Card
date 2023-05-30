@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 html {
-    font-size: 0.9vw;
+    font-size: 0.8vw;
 }
 body {
     height: $body-height;
@@ -27,40 +27,124 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 900px;
+    perspective: $card-transition-perspective;
     & .card {
         width: $card-width;
         height: $card-height;
         border-radius: $card-border-radius;
         position: relative;
-        transition: rotate 0.3s;
+        transition: rotate $card-transition-time;
         transform-style: preserve-3d;
+
         & .front-face,
         & .back-face {
-            background-color: indianred;
             inset: 0;
-            padding: 3rem 4.25rem;
+            padding: $card-padding-y $card-padding-x;
             position: absolute;
             border-radius: inherit;
             backface-visibility: hidden;
             ////
-            display: flex;
-            justify-content: center;
-            align-items: center;
             ////
+            & .card-heading {
+                width: 80%;
+                font-weight: $card-heading-text-weight;
+                font-size: $card-heading-text-size;
+                line-height: $card-heading-text-line-height;
+                color: $card-heading-text-color;
+            }
         }
         & .front-face {
-            color: #fff;
+            background: url($front-bg-image) no-repeat center / cover;
+            display: flex;
+            justify-content: start;
+            align-items: end;
+            & .footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                & .button-front {
+                    rotate: $button-front-rotation;
+                }
+            }
         }
         & .back-face {
+            background-color: $back-face-bg-color;
+            display: grid;
+            grid-template-rows: 20rem auto 1fr 4rem;
             rotate: y 180deg;
+            & .logo {
+                width: 6.56rem;
+                height: 6rem;
+                align-self: end;
+                & img {
+                    width: inherit;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+            & .heading {
+                padding: 1rem 0;
+                & .card-heading {
+                    color: #1e335c;
+                    translate: 0 18rem;
+                    transition: all 0.25s 0.1s ease;
+                }
+            }
+            & .description {
+                padding: 1rem 0;
+                & p {
+                    font-weight: $description-text-weight;
+                    font-size: $description-text-size;
+                    line-height: $description-text-line-height;
+                    color: $description-text-color;
+                }
+            }
+            & .footer {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+            }
         }
     }
     &:hover {
         & .card {
-            rotate: y 180deg;
-            animation: scalle 0.45s 0.15s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+            rotate: y -180deg;
+            animation: scalle 0.4s 0.16s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+            & .back-face {
+                & .heading {
+                    & .card-heading {
+                        translate: 0;
+                        animation: scalle 0.4s 0.16s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+                    }
+                }
+            }
         }
+    }
+}
+.btn {
+    width: 13rem;
+    height: 4.25rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $button-text-color;
+    cursor: pointer;
+    & .button-text {
+        font-weight: $button-text-weight;
+        font-size: $button-text-size;
+        line-height: $button-text-line-height;
+    }
+    & .icon {
+        font-weight: $button-text-weight;
+        font-size: $button-front-width;
+    }
+    &.button-front {
+        width: $button-front-width;
+        height: $button-front-height;
+        border-radius: 50%;
     }
 }
 @keyframes scalle {
@@ -68,7 +152,7 @@ body {
         scale: 1 1;
     }
     50% {
-        scale: 1.1 1;
+        scale: 1.15 1;
     }
     100% {
         scale: 1 1;

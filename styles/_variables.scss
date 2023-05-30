@@ -10,4 +10,32 @@ $card-container-bg-color: rgba(255, 255, 255, 0.5);
 //card
 $card-width: 34.375rem;
 $card-height: 55rem;
+$card-padding-y: 4rem;
+$card-padding-x: 4.25rem;
 $card-border-radius: 2rem;
+$card-transition-perspective: 1000px;
+$card-transition-time: 0.3s;
+//card heading text
+$card-heading-text-weight: 700;
+$card-heading-text-size: 2.25rem;
+$card-heading-text-line-height: 2.625rem;
+$card-heading-text-color: var(--on-primary);
+//card front face
+$front-bg-image: "assets/img/buildings.png";
+$front-footer-width: 90%;
+//card back face
+$back-face-bg-color: var(--on-primary);
+//card heading text
+//description
+$description-text-weight: 500;
+$description-text-size: 1.125rem;
+$description-text-line-height: 2rem;
+$description-text-color: #6c7994;
+//button simple
+$button-front-width: 4.25rem;
+$button-front-height: 4.25rem;
+$button-front-rotation: -40deg;
+$button-text-weight: 400;
+$button-text-size: 1.25rem;
+$button-text-line-height: 1.5rem;
+$button-text-color: var(--primary);

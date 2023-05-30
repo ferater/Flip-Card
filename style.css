@@ -14,7 +14,7 @@ body {
 }
 
 html {
-  font-size: 0.9vw;
+  font-size: 0.8vw;
 }
 
 body {
@@ -35,7 +35,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 900px;
+  perspective: 1000px;
 }
 .card-container .card {
   width: 34.375rem;
@@ -46,25 +46,106 @@ body {
   transform-style: preserve-3d;
 }
 .card-container .card .front-face, .card-container .card .back-face {
-  background-color: indianred;
   inset: 0;
-  padding: 3rem 4.25rem;
+  padding: 4rem 4.25rem;
   position: absolute;
   border-radius: inherit;
   backface-visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+.card-container .card .front-face .card-heading, .card-container .card .back-face .card-heading {
+  width: 80%;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 2.625rem;
+  color: var(--on-primary);
 }
 .card-container .card .front-face {
-  color: #fff;
+  background: url("assets/img/buildings.png") no-repeat center/cover;
+  display: flex;
+  justify-content: start;
+  align-items: end;
+}
+.card-container .card .front-face .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-container .card .front-face .footer .button-front {
+  rotate: -40deg;
 }
 .card-container .card .back-face {
+  background-color: var(--on-primary);
+  display: grid;
+  grid-template-rows: 20rem auto 1fr 4rem;
   rotate: y 180deg;
 }
+.card-container .card .back-face .logo {
+  width: 6.56rem;
+  height: 6rem;
+  align-self: end;
+}
+.card-container .card .back-face .logo img {
+  width: inherit;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card-container .card .back-face .heading {
+  padding: 1rem 0;
+}
+.card-container .card .back-face .heading .card-heading {
+  color: #1e335c;
+  translate: 0 18rem;
+  transition: all 0.25s 0.1s ease;
+}
+.card-container .card .back-face .description {
+  padding: 1rem 0;
+}
+.card-container .card .back-face .description p {
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: #6c7994;
+}
+.card-container .card .back-face .footer {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
 .card-container:hover .card {
-  rotate: y 180deg;
-  animation: scalle 0.45s 0.15s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+  rotate: y -180deg;
+  animation: scalle 0.4s 0.16s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+}
+.card-container:hover .card .back-face .heading .card-heading {
+  translate: 0;
+  animation: scalle 0.4s 0.16s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+}
+
+.btn {
+  width: 13rem;
+  height: 4.25rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary);
+  cursor: pointer;
+}
+.btn .button-text {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+.btn .icon {
+  font-weight: 400;
+  font-size: 4.25rem;
+}
+.btn.button-front {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
 }
 
 @keyframes scalle {
@@ -72,7 +153,7 @@ body {
     scale: 1 1;
   }
   50% {
-    scale: 1.1 1;
+    scale: 1.15 1;
   }
   100% {
     scale: 1 1;
