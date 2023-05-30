@@ -1,0 +1,9 @@
+$primary: #19abfe;
+$on-primary: #ffffff;
+$dark: #000000;
+
+body {
+    --primary: #{$primary};
+    --on-primary: #{$on-primary};
+    --dark: #{$dark};
+}
