@@ -27,13 +27,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: $card-transition-perspective;
+    /* perspective: $card-transition-perspective; */
     & .card {
         width: $card-width;
         height: $card-height;
         border-radius: $card-border-radius;
         position: relative;
-        transition: rotate $card-transition-time;
+        transition: rotate 0.25s linear;
         transform-style: preserve-3d;
 
         & .front-face,
@@ -51,6 +51,7 @@ body {
                 font-size: $card-heading-text-size;
                 line-height: $card-heading-text-line-height;
                 color: $card-heading-text-color;
+                transition: all 0.2s 0.05s ease-out;
             }
         }
         & .front-face {
@@ -83,11 +84,10 @@ body {
                 }
             }
             & .heading {
-                padding: 1rem 0;
+                padding-top: 1rem;
                 & .card-heading {
                     color: #1e335c;
                     translate: 0 18rem;
-                    transition: all 0.25s 0.1s ease;
                 }
             }
             & .description {
@@ -105,16 +105,26 @@ body {
                 align-items: center;
             }
         }
+        &.animate {
+            animation: bounce 0.4s cubic-bezier(0.01, 0.31, 1, 0.19);
+        }
     }
     &:hover {
         & .card {
             rotate: y -180deg;
-            animation: scalle 0.4s 0.16s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+            animation: bounce 0.4s cubic-bezier(0.01, 0.31, 1, 0.19);
+            & .front-face {
+                & .card-heading {
+                    translate: 0 -18rem;
+                    font-size: 2.5rem;
+                }
+            }
             & .back-face {
                 & .heading {
                     & .card-heading {
+                        font-size: 2.5rem;
                         translate: 0;
-                        animation: scalle 0.4s 0.16s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+                        animation: bounce 0.4s 0.08s cubic-bezier(0.63, 0.09, 0.6, 1.53);
                     }
                 }
             }
@@ -147,12 +157,12 @@ body {
         border-radius: 50%;
     }
 }
-@keyframes scalle {
+@keyframes bounce {
     0% {
         scale: 1 1;
     }
     50% {
-        scale: 1.15 1;
+        scale: 1.05 1;
     }
     100% {
         scale: 1 1;

@@ -35,14 +35,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1000px;
+  /* perspective: $card-transition-perspective; */
 }
 .card-container .card {
   width: 34.375rem;
   height: 55rem;
   border-radius: 2rem;
   position: relative;
-  transition: rotate 0.3s;
+  transition: rotate 0.25s linear;
   transform-style: preserve-3d;
 }
 .card-container .card .front-face, .card-container .card .back-face {
@@ -58,6 +58,7 @@ body {
   font-size: 2.25rem;
   line-height: 2.625rem;
   color: var(--on-primary);
+  transition: all 0.2s 0.05s ease-out;
 }
 .card-container .card .front-face {
   background: url("assets/img/buildings.png") no-repeat center/cover;
@@ -91,12 +92,11 @@ body {
      object-fit: cover;
 }
 .card-container .card .back-face .heading {
-  padding: 1rem 0;
+  padding-top: 1rem;
 }
 .card-container .card .back-face .heading .card-heading {
   color: #1e335c;
   translate: 0 18rem;
-  transition: all 0.25s 0.1s ease;
 }
 .card-container .card .back-face .description {
   padding: 1rem 0;
@@ -112,13 +112,21 @@ body {
   justify-content: end;
   align-items: center;
 }
+.card-container .card.animate {
+  animation: bounce 0.4s cubic-bezier(0.01, 0.31, 1, 0.19);
+}
 .card-container:hover .card {
   rotate: y -180deg;
-  animation: scalle 0.4s 0.16s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+  animation: bounce 0.4s cubic-bezier(0.01, 0.31, 1, 0.19);
+}
+.card-container:hover .card .front-face .card-heading {
+  translate: 0 -18rem;
+  font-size: 2.5rem;
 }
 .card-container:hover .card .back-face .heading .card-heading {
+  font-size: 2.5rem;
   translate: 0;
-  animation: scalle 0.4s 0.16s cubic-bezier(0.42, 1.55, 0.96, 0.79);
+  animation: bounce 0.4s 0.08s cubic-bezier(0.63, 0.09, 0.6, 1.53);
 }
 
 .btn {
@@ -148,12 +156,12 @@ body {
   border-radius: 50%;
 }
 
-@keyframes scalle {
+@keyframes bounce {
   0% {
     scale: 1 1;
   }
   50% {
-    scale: 1.15 1;
+    scale: 1.05 1;
   }
   100% {
     scale: 1 1;
