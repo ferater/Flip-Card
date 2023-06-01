@@ -33,7 +33,7 @@ body {
         height: $card-height;
         border-radius: $card-border-radius;
         position: relative;
-        transition: rotate 0.5s cubic-bezier(0.1, 1.13, 1, 1.13);
+        transition: rotate 0.5s cubic-bezier(0.33, 0.9, 0.6, 1.2);
         transform-style: preserve-3d;
 
         & .front-face,
@@ -51,7 +51,7 @@ body {
                 font-size: $card-heading-text-size;
                 line-height: $card-heading-text-line-height;
                 color: $card-heading-text-color;
-                transition: all 0.3s cubic-bezier(0.2, 1.2, 0.75, 1.15);
+                transition: all 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
             }
         }
         & .front-face {
@@ -105,14 +105,10 @@ body {
                 align-items: center;
             }
         }
-        &.animate {
-            animation: bounce 0.75s cubic-bezier(0.01, 0.31, 1, 0.19);
-        }
     }
     &:hover {
         & .card {
             rotate: y -180deg;
-            // animation: bounce 0.4s cubic-bezier(0.01, 0.31, 1, 0.19);
             & .front-face {
                 & .card-heading {
                     translate: 0 -18rem;
@@ -124,7 +120,7 @@ body {
                     & .card-heading {
                         font-size: 2.5rem;
                         translate: 0;
-                        animation: bounce 0.4s 0.08s cubic-bezier(0.63, 0.09, 0.6, 1.53);
+                        animation: bounce 0.4s 0.08s cubic-bezier(0.63, 0.09, 0.6, 1.25);
                     }
                 }
             }
