@@ -42,7 +42,7 @@ body {
   height: 55rem;
   border-radius: 2rem;
   position: relative;
-  transition: rotate 0.25s linear;
+  transition: rotate 0.5s cubic-bezier(0.1, 1.13, 1, 1.13);
   transform-style: preserve-3d;
 }
 .card-container .card .front-face, .card-container .card .back-face {
@@ -58,7 +58,7 @@ body {
   font-size: 2.25rem;
   line-height: 2.625rem;
   color: var(--on-primary);
-  transition: all 0.2s 0.05s ease-out;
+  transition: all 0.3s cubic-bezier(0.2, 1.2, 0.75, 1.15);
 }
 .card-container .card .front-face {
   background: url("assets/img/buildings.png") no-repeat center/cover;
@@ -113,11 +113,10 @@ body {
   align-items: center;
 }
 .card-container .card.animate {
-  animation: bounce 0.4s cubic-bezier(0.01, 0.31, 1, 0.19);
+  animation: bounce 0.75s cubic-bezier(0.01, 0.31, 1, 0.19);
 }
 .card-container:hover .card {
   rotate: y -180deg;
-  animation: bounce 0.4s cubic-bezier(0.01, 0.31, 1, 0.19);
 }
 .card-container:hover .card .front-face .card-heading {
   translate: 0 -18rem;
@@ -160,8 +159,8 @@ body {
   0% {
     scale: 1 1;
   }
-  50% {
-    scale: 1.05 1;
+  60% {
+    scale: 1.06 1;
   }
   100% {
     scale: 1 1;
