@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 body {
   --primary: #19abfe;
+  --primary-dark-40: #00304b;
   --on-primary: #ffffff;
   --dark: #000000;
 }
@@ -44,6 +45,7 @@ body {
   position: relative;
   transition: rotate 0.5s cubic-bezier(0.33, 0.9, 0.6, 1.2);
   transform-style: preserve-3d;
+  rotate: y 180deg;
 }
 .card-container .card .front-face, .card-container .card .back-face {
   inset: 0;
@@ -58,7 +60,7 @@ body {
   font-size: 2.25rem;
   line-height: 2.625rem;
   color: var(--on-primary);
-  transition: all 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
+  transition: all 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.15);
 }
 .card-container .card .front-face {
   background: url("assets/img/buildings.png") no-repeat center/cover;
@@ -95,11 +97,11 @@ body {
   padding-top: 1rem;
 }
 .card-container .card .back-face .heading .card-heading {
-  color: #1e335c;
+  color: var(--primary-dark-40);
   translate: 0 18rem;
 }
 .card-container .card .back-face .description {
-  padding: 1rem 0;
+  padding-top: 1rem;
 }
 .card-container .card .back-face .description p {
   font-weight: 500;
@@ -112,9 +114,6 @@ body {
   justify-content: end;
   align-items: center;
 }
-.card-container:hover .card {
-  rotate: y -180deg;
-}
 .card-container:hover .card .front-face .card-heading {
   translate: 0 -18rem;
   font-size: 2.5rem;
@@ -122,7 +121,6 @@ body {
 .card-container:hover .card .back-face .heading .card-heading {
   font-size: 2.5rem;
   translate: 0;
-  animation: bounce 0.4s 0.08s cubic-bezier(0.63, 0.09, 0.6, 1.25);
 }
 
 .btn {
@@ -150,16 +148,4 @@ body {
   width: 4.25rem;
   height: 4.25rem;
   border-radius: 50%;
-}
-
-@keyframes bounce {
-  0% {
-    scale: 1 1;
-  }
-  60% {
-    scale: 1.06 1;
-  }
-  100% {
-    scale: 1 1;
-  }
 }/*# sourceMappingURL=style.css.map */

@@ -4,6 +4,7 @@ $dark: #000000;
 
 body {
     --primary: #{$primary};
+    --primary-dark-40: #{darken($primary, 40)};
     --on-primary: #{$on-primary};
     --dark: #{$dark};
 }

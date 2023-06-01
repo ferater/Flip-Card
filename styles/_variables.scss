@@ -18,6 +18,7 @@ $card-transition-time: 0.2s;
 //card heading text
 $card-heading-text-weight: 700;
 $card-heading-text-size: 2.25rem;
+$card-heading-on-hover-text-size: 2.5rem;
 $card-heading-text-line-height: 2.625rem;
 $card-heading-text-color: var(--on-primary);
 //card front face
@@ -25,6 +26,13 @@ $front-bg-image: "assets/img/buildings.png";
 $front-footer-width: 90%;
 //card back face
 $back-face-bg-color: var(--on-primary);
+$back-face-logo-width: 6.56rem;
+$back-face-logo-height: 6rem;
+$back-face-heading-text-color: var(--primary-dark-40);
+$back-face-heading-padding-top: 1rem;
+$back-face-heading-translate-x: 0;
+$back-face-heading-translate-y: 18rem;
+$back-face-description-padding-top: 1rem;
 //card heading text
 //description
 $description-text-weight: 500;

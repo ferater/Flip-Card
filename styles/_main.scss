@@ -35,6 +35,7 @@ body {
         position: relative;
         transition: rotate 0.5s cubic-bezier(0.33, 0.9, 0.6, 1.2);
         transform-style: preserve-3d;
+        rotate: y 180deg;
 
         & .front-face,
         & .back-face {
@@ -51,7 +52,7 @@ body {
                 font-size: $card-heading-text-size;
                 line-height: $card-heading-text-line-height;
                 color: $card-heading-text-color;
-                transition: all 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
+                transition: all 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.15);
             }
         }
         & .front-face {
@@ -74,8 +75,8 @@ body {
             grid-template-rows: 20rem auto 1fr 4rem;
             rotate: y 180deg;
             & .logo {
-                width: 6.56rem;
-                height: 6rem;
+                width: $back-face-logo-width;
+                height: $back-face-logo-height;
                 align-self: end;
                 & img {
                     width: inherit;
@@ -84,14 +85,14 @@ body {
                 }
             }
             & .heading {
-                padding-top: 1rem;
+                padding-top: $back-face-heading-padding-top;
                 & .card-heading {
-                    color: #1e335c;
-                    translate: 0 18rem;
+                    color: $back-face-heading-text-color;
+                    translate: $back-face-heading-translate-x $back-face-heading-translate-y;
                 }
             }
             & .description {
-                padding: 1rem 0;
+                padding-top: $back-face-description-padding-top;
                 & p {
                     font-weight: $description-text-weight;
                     font-size: $description-text-size;
@@ -108,19 +109,18 @@ body {
     }
     &:hover {
         & .card {
-            rotate: y -180deg;
+            // rotate: y -180deg;
             & .front-face {
                 & .card-heading {
-                    translate: 0 -18rem;
-                    font-size: 2.5rem;
+                    translate: $back-face-heading-translate-x calc($back-face-heading-translate-y * -1);
+                    font-size: $card-heading-on-hover-text-size;
                 }
             }
             & .back-face {
                 & .heading {
                     & .card-heading {
-                        font-size: 2.5rem;
+                        font-size: $card-heading-on-hover-text-size;
                         translate: 0;
-                        animation: bounce 0.4s 0.08s cubic-bezier(0.63, 0.09, 0.6, 1.25);
                     }
                 }
             }
@@ -151,16 +151,5 @@ body {
         width: $button-front-width;
         height: $button-front-height;
         border-radius: 50%;
-    }
-}
-@keyframes bounce {
-    0% {
-        scale: 1 1;
-    }
-    60% {
-        scale: 1.06 1;
-    }
-    100% {
-        scale: 1 1;
     }
 }
