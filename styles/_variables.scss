@@ -39,11 +39,18 @@ $description-text-weight: 500;
 $description-text-size: 1.125rem;
 $description-text-line-height: 2rem;
 $description-text-color: #6c7994;
-//button simple
-$button-front-width: 4.25rem;
-$button-front-height: 4.25rem;
-$button-front-rotation: -40deg;
+//button
+$button-width: 4.25rem;
+$button-height: 4.25rem;
+$button-border-widh: 1px;
+$button-border-color: var(--primary);
 $button-text-weight: 400;
-$button-text-size: 1.25rem;
+$button-text-size: 1.5rem;
 $button-text-line-height: 1.5rem;
 $button-text-color: var(--primary);
+$button-text-position-right: 11rem;
+$button-on-hover-bg-color: var(--primary);
+$button-on-hover-text-color: var(--on-primary);
+$button-text-on-hover-position-right: 8.5rem;
+//button front
+$button-front-rotation: -40deg;

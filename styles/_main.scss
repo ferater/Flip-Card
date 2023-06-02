@@ -6,6 +6,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+a {
+    text-decoration: none;
+}
 html {
     font-size: 0.8vw;
 }
@@ -33,10 +36,8 @@ body {
         height: $card-height;
         border-radius: $card-border-radius;
         position: relative;
-        transition: rotate 0.5s cubic-bezier(0.33, 0.9, 0.6, 1.2);
+        transition: rotate 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
         transform-style: preserve-3d;
-        rotate: y 180deg;
-
         & .front-face,
         & .back-face {
             inset: 0;
@@ -52,7 +53,7 @@ body {
                 font-size: $card-heading-text-size;
                 line-height: $card-heading-text-line-height;
                 color: $card-heading-text-color;
-                transition: all 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.15);
+                transition: all 0.35s cubic-bezier(0.33, 0.9, 0.6, 1.15);
             }
         }
         & .front-face {
@@ -62,7 +63,6 @@ body {
             align-items: end;
             & .footer {
                 display: flex;
-                justify-content: space-between;
                 align-items: center;
                 & .button-front {
                     rotate: $button-front-rotation;
@@ -109,7 +109,7 @@ body {
     }
     &:hover {
         & .card {
-            // rotate: y -180deg;
+            rotate: y -180deg;
             & .front-face {
                 & .card-heading {
                     translate: $back-face-heading-translate-x calc($back-face-heading-translate-y * -1);
@@ -128,28 +128,44 @@ body {
     }
 }
 .btn {
-    width: 13rem;
-    height: 4.25rem;
-    background-color: transparent;
-    border: none;
+    width: $button-width;
+    height: $button-height;
     outline: none;
-    display: flex;
-    justify-content: space-between;
+    border: $button-border-widh solid $button-border-color;
+    border-radius: calc($button-height / 2);
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
-    color: $button-text-color;
-    cursor: pointer;
+    transform-origin: right center;
+    transition: width 0.35s cubic-bezier(0.42, 0.92, 0.65, 1.55), background-color 0.25s 0.1s ease;
     & .button-text {
         font-weight: $button-text-weight;
         font-size: $button-text-size;
         line-height: $button-text-line-height;
+        position: absolute;
+        right: $button-text-position-right;
+        white-space: nowrap;
     }
-    & .icon {
-        font-weight: $button-text-weight;
-        font-size: $button-front-width;
+    & .button-text,
+    & .button-icon {
+        color: $button-text-color;
+        transition: color 0.2s 0.1s linear, right 0.2s linear;
     }
-    &.button-front {
-        width: $button-front-width;
-        height: $button-front-height;
-        border-radius: 50%;
+}
+.read-more {
+    &:hover {
+        & .button-read-more {
+            width: calc($button-width * 3);
+            padding: calc($button-height / 3);
+            background-color: $button-on-hover-bg-color;
+            justify-content: end;
+            & .button-text,
+            & .button-icon {
+                color: $button-on-hover-text-color;
+            }
+            & .button-text {
+                right: $button-text-on-hover-position-right;
+            }
+        }
     }
 }

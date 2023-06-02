@@ -14,6 +14,10 @@ body {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   font-size: 0.8vw;
 }
@@ -43,9 +47,8 @@ body {
   height: 55rem;
   border-radius: 2rem;
   position: relative;
-  transition: rotate 0.5s cubic-bezier(0.33, 0.9, 0.6, 1.2);
+  transition: rotate 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
   transform-style: preserve-3d;
-  rotate: y 180deg;
 }
 .card-container .card .front-face, .card-container .card .back-face {
   inset: 0;
@@ -60,7 +63,7 @@ body {
   font-size: 2.25rem;
   line-height: 2.625rem;
   color: var(--on-primary);
-  transition: all 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.15);
+  transition: all 0.35s cubic-bezier(0.33, 0.9, 0.6, 1.15);
 }
 .card-container .card .front-face {
   background: url("assets/img/buildings.png") no-repeat center/cover;
@@ -70,7 +73,6 @@ body {
 }
 .card-container .card .front-face .footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 .card-container .card .front-face .footer .button-front {
@@ -114,6 +116,9 @@ body {
   justify-content: end;
   align-items: center;
 }
+.card-container:hover .card {
+  rotate: y -180deg;
+}
 .card-container:hover .card .front-face .card-heading {
   translate: 0 -18rem;
   font-size: 2.5rem;
@@ -124,28 +129,39 @@ body {
 }
 
 .btn {
-  width: 13rem;
+  width: 4.25rem;
   height: 4.25rem;
-  background-color: transparent;
-  border: none;
   outline: none;
-  display: flex;
-  justify-content: space-between;
+  border: 1px solid var(--primary);
+  border-radius: 2.125rem;
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
-  color: var(--primary);
-  cursor: pointer;
+  transform-origin: right center;
+  transition: width 0.35s cubic-bezier(0.42, 0.92, 0.65, 1.55), background-color 0.25s 0.1s ease;
 }
 .btn .button-text {
   font-weight: 400;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.5rem;
+  position: absolute;
+  right: 11rem;
+  white-space: nowrap;
 }
-.btn .icon {
-  font-weight: 400;
-  font-size: 4.25rem;
+.btn .button-text, .btn .button-icon {
+  color: var(--primary);
+  transition: color 0.2s 0.1s linear, right 0.2s linear;
 }
-.btn.button-front {
-  width: 4.25rem;
-  height: 4.25rem;
-  border-radius: 50%;
+
+.read-more:hover .button-read-more {
+  width: 12.75rem;
+  padding: 1.4166666667rem;
+  background-color: var(--primary);
+  justify-content: end;
+}
+.read-more:hover .button-read-more .button-text, .read-more:hover .button-read-more .button-icon {
+  color: var(--on-primary);
+}
+.read-more:hover .button-read-more .button-text {
+  right: 8.5rem;
 }/*# sourceMappingURL=style.css.map */
