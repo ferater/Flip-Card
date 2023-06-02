@@ -37,7 +37,7 @@ body {
             height: $card-height;
             border-radius: $card-border-radius;
             position: relative;
-            transition: rotate 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
+            transition: rotate 0.6s cubic-bezier(0.33, 0.9, 0.6, 1.2);
             transform-style: preserve-3d;
             & .front-face,
             & .back-face {
@@ -54,7 +54,7 @@ body {
                     font-size: $card-heading-text-size;
                     line-height: $card-heading-text-line-height;
                     color: $card-heading-text-color;
-                    transition: all 0.35s cubic-bezier(0.33, 0.9, 0.6, 1.15);
+                    transition: all 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.15);
                 }
             }
             & .front-face {
@@ -139,7 +139,7 @@ body {
     justify-content: center;
     align-items: center;
     transform-origin: right center;
-    transition: width 0.35s cubic-bezier(0.67, 0.99, 0.62, 1.53), background-color 0.25s 0.1s ease;
+    transition: width 0.375s cubic-bezier(0.67, 0.99, 0.62, 1.53), background-color 0.25s 0.1s ease;
     & .button-text {
         font-weight: $button-text-weight;
         font-size: $button-text-size;
