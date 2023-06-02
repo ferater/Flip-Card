@@ -4,7 +4,7 @@
 [live demo](https://ferater.github.io/Flip-Card/)
 
 
-[original figma](https://www.figma.com/community/file/872142663081104481/e-Commerce-Home-Page)
+[original figma](https://www.figma.com/community/file/1218962627898077174)
 
 
 ![alt text](https://github.com/ferater/Flip-Card/blob/main/assets/img/ScreenShot-Front.png)
