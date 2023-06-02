@@ -7,8 +7,8 @@
 [original figma](https://www.figma.com/community/file/872142663081104481/e-Commerce-Home-Page)
 
 
-![alt text](https://github.com/ferater/Flip-Card//blob/main/assets/img/ScreenShot-Front.png)
-![alt text](https://github.com/ferater/Flip-Card//blob/main/assets/img/ScreenShot-Back.png)
+![alt text](https://github.com/ferater/Flip-Card/blob/main/assets/img/ScreenShot-Front.png)
+![alt text](https://github.com/ferater/Flip-Card/blob/main/assets/img/ScreenShot-Back.png)
 
 ## Setup
 ```
