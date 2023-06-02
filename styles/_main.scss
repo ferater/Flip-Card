@@ -10,7 +10,7 @@ a {
     text-decoration: none;
 }
 html {
-    font-size: 0.8vw;
+    font-size: 0.73vw;
 }
 body {
     height: $body-height;
@@ -21,7 +21,7 @@ body {
     align-items: center;
 }
 
-.card-container {
+.container {
     width: $card-container-width;
     height: $card-container-height;
     background: url($card-container-bg-image) no-repeat center / cover;
@@ -30,97 +30,99 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* perspective: $card-transition-perspective; */
-    & .card {
-        width: $card-width;
-        height: $card-height;
-        border-radius: $card-border-radius;
-        position: relative;
-        transition: rotate 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
-        transform-style: preserve-3d;
-        & .front-face,
-        & .back-face {
-            inset: 0;
-            padding: $card-padding-y $card-padding-x;
-            position: absolute;
-            border-radius: inherit;
-            backface-visibility: hidden;
-            ////
-            ////
-            & .card-heading {
-                width: 80%;
-                font-weight: $card-heading-text-weight;
-                font-size: $card-heading-text-size;
-                line-height: $card-heading-text-line-height;
-                color: $card-heading-text-color;
-                transition: all 0.35s cubic-bezier(0.33, 0.9, 0.6, 1.15);
-            }
-        }
-        & .front-face {
-            background: url($front-bg-image) no-repeat center / cover;
-            display: flex;
-            justify-content: start;
-            align-items: end;
-            & .footer {
-                display: flex;
-                align-items: center;
-                & .button-front {
-                    rotate: $button-front-rotation;
-                }
-            }
-        }
-        & .back-face {
-            background-color: $back-face-bg-color;
-            display: grid;
-            grid-template-rows: 20rem auto 1fr 4rem;
-            rotate: y 180deg;
-            & .logo {
-                width: $back-face-logo-width;
-                height: $back-face-logo-height;
-                align-self: end;
-                & img {
-                    width: inherit;
-                    height: auto;
-                    object-fit: cover;
-                }
-            }
-            & .heading {
-                padding-top: $back-face-heading-padding-top;
-                & .card-heading {
-                    color: $back-face-heading-text-color;
-                    translate: $back-face-heading-translate-x $back-face-heading-translate-y;
-                }
-            }
-            & .description {
-                padding-top: $back-face-description-padding-top;
-                & p {
-                    font-weight: $description-text-weight;
-                    font-size: $description-text-size;
-                    line-height: $description-text-line-height;
-                    color: $description-text-color;
-                }
-            }
-            & .footer {
-                display: flex;
-                justify-content: end;
-                align-items: center;
-            }
-        }
-    }
-    &:hover {
+    & .card-container {
+        /* perspective: $card-transition-perspective; */
         & .card {
-            rotate: y -180deg;
-            & .front-face {
+            width: $card-width;
+            height: $card-height;
+            border-radius: $card-border-radius;
+            position: relative;
+            transition: rotate 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
+            transform-style: preserve-3d;
+            & .front-face,
+            & .back-face {
+                inset: 0;
+                padding: $card-padding-y $card-padding-x;
+                position: absolute;
+                border-radius: inherit;
+                backface-visibility: hidden;
+                ////
+                ////
                 & .card-heading {
-                    translate: $back-face-heading-translate-x calc($back-face-heading-translate-y * -1);
-                    font-size: $card-heading-on-hover-text-size;
+                    width: 90%;
+                    font-weight: $card-heading-text-weight;
+                    font-size: $card-heading-text-size;
+                    line-height: $card-heading-text-line-height;
+                    color: $card-heading-text-color;
+                    transition: all 0.35s cubic-bezier(0.33, 0.9, 0.6, 1.15);
+                }
+            }
+            & .front-face {
+                background: url($front-bg-image) no-repeat center / cover;
+                display: flex;
+                justify-content: start;
+                align-items: end;
+                & .footer {
+                    display: flex;
+                    align-items: center;
+                    & .button-front {
+                        rotate: $button-front-rotation;
+                    }
                 }
             }
             & .back-face {
+                background-color: $back-face-bg-color;
+                display: grid;
+                grid-template-rows: 18rem auto 1fr 4rem;
+                rotate: y 180deg;
+                & .logo {
+                    width: $back-face-logo-width;
+                    height: $back-face-logo-height;
+                    align-self: end;
+                    & img {
+                        width: inherit;
+                        height: auto;
+                        object-fit: cover;
+                    }
+                }
                 & .heading {
+                    padding-top: $back-face-heading-padding-top;
                     & .card-heading {
+                        color: $back-face-heading-text-color;
+                        translate: $back-face-heading-translate-x $back-face-heading-translate-y;
+                    }
+                }
+                & .description {
+                    padding-top: $back-face-description-padding-top;
+                    & p {
+                        font-weight: $description-text-weight;
+                        font-size: $description-text-size;
+                        line-height: $description-text-line-height;
+                        color: $description-text-color;
+                    }
+                }
+                & .footer {
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                }
+            }
+        }
+        &:hover {
+            & .card {
+                rotate: y -180deg;
+                & .front-face {
+                    & .card-heading {
+                        translate: $back-face-heading-translate-x calc($back-face-heading-translate-y * -1);
                         font-size: $card-heading-on-hover-text-size;
-                        translate: 0;
+                    }
+                }
+                & .back-face {
+                    & .heading {
+                        & .card-heading {
+                            font-size: $card-heading-on-hover-text-size;
+                            translate: 0;
+                        }
                     }
                 }
             }
@@ -137,7 +139,7 @@ body {
     justify-content: center;
     align-items: center;
     transform-origin: right center;
-    transition: width 0.35s cubic-bezier(0.42, 0.92, 0.65, 1.55), background-color 0.25s 0.1s ease;
+    transition: width 0.35s cubic-bezier(0.67, 0.99, 0.62, 1.53), background-color 0.25s 0.1s ease;
     & .button-text {
         font-weight: $button-text-weight;
         font-size: $button-text-size;
@@ -149,10 +151,12 @@ body {
     & .button-text,
     & .button-icon {
         color: $button-text-color;
-        transition: color 0.2s 0.1s linear, right 0.2s linear;
+        transition: color 0.2s 0.1s linear, right 0.15s linear;
     }
 }
 .read-more {
+    width: calc($button-width * 4);
+    text-align: end;
     &:hover {
         & .button-read-more {
             width: calc($button-width * 3);

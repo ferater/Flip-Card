@@ -19,7 +19,7 @@ a {
 }
 
 html {
-  font-size: 0.8vw;
+  font-size: 0.73vw;
 }
 
 body {
@@ -31,7 +31,7 @@ body {
   align-items: center;
 }
 
-.card-container {
+.container {
   width: 47.5rem;
   height: 65rem;
   background: url("assets/img/bg.jpg") no-repeat center/cover;
@@ -40,9 +40,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.container .card-container {
   /* perspective: $card-transition-perspective; */
 }
-.card-container .card {
+.container .card-container .card {
   width: 34.375rem;
   height: 55rem;
   border-radius: 2rem;
@@ -50,80 +52,80 @@ body {
   transition: rotate 0.4s cubic-bezier(0.33, 0.9, 0.6, 1.2);
   transform-style: preserve-3d;
 }
-.card-container .card .front-face, .card-container .card .back-face {
+.container .card-container .card .front-face, .container .card-container .card .back-face {
   inset: 0;
   padding: 4rem 4.25rem;
   position: absolute;
   border-radius: inherit;
   backface-visibility: hidden;
 }
-.card-container .card .front-face .card-heading, .card-container .card .back-face .card-heading {
-  width: 80%;
+.container .card-container .card .front-face .card-heading, .container .card-container .card .back-face .card-heading {
+  width: 90%;
   font-weight: 700;
   font-size: 2.25rem;
   line-height: 2.625rem;
   color: var(--on-primary);
   transition: all 0.35s cubic-bezier(0.33, 0.9, 0.6, 1.15);
 }
-.card-container .card .front-face {
+.container .card-container .card .front-face {
   background: url("assets/img/buildings.png") no-repeat center/cover;
   display: flex;
   justify-content: start;
   align-items: end;
 }
-.card-container .card .front-face .footer {
+.container .card-container .card .front-face .footer {
   display: flex;
   align-items: center;
 }
-.card-container .card .front-face .footer .button-front {
+.container .card-container .card .front-face .footer .button-front {
   rotate: -40deg;
 }
-.card-container .card .back-face {
+.container .card-container .card .back-face {
   background-color: var(--on-primary);
   display: grid;
-  grid-template-rows: 20rem auto 1fr 4rem;
+  grid-template-rows: 18rem auto 1fr 4rem;
   rotate: y 180deg;
 }
-.card-container .card .back-face .logo {
+.container .card-container .card .back-face .logo {
   width: 6.56rem;
   height: 6rem;
   align-self: end;
 }
-.card-container .card .back-face .logo img {
+.container .card-container .card .back-face .logo img {
   width: inherit;
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.card-container .card .back-face .heading {
+.container .card-container .card .back-face .heading {
   padding-top: 1rem;
 }
-.card-container .card .back-face .heading .card-heading {
+.container .card-container .card .back-face .heading .card-heading {
   color: var(--primary-dark-40);
   translate: 0 18rem;
 }
-.card-container .card .back-face .description {
-  padding-top: 1rem;
+.container .card-container .card .back-face .description {
+  padding-top: 2rem;
 }
-.card-container .card .back-face .description p {
+.container .card-container .card .back-face .description p {
   font-weight: 500;
   font-size: 1.125rem;
   line-height: 2rem;
   color: #6c7994;
 }
-.card-container .card .back-face .footer {
+.container .card-container .card .back-face .footer {
   display: flex;
   justify-content: end;
   align-items: center;
 }
-.card-container:hover .card {
+.container .card-container:hover .card {
   rotate: y -180deg;
 }
-.card-container:hover .card .front-face .card-heading {
+.container .card-container:hover .card .front-face .card-heading {
   translate: 0 -18rem;
   font-size: 2.5rem;
 }
-.card-container:hover .card .back-face .heading .card-heading {
+.container .card-container:hover .card .back-face .heading .card-heading {
   font-size: 2.5rem;
   translate: 0;
 }
@@ -138,7 +140,7 @@ body {
   justify-content: center;
   align-items: center;
   transform-origin: right center;
-  transition: width 0.35s cubic-bezier(0.42, 0.92, 0.65, 1.55), background-color 0.25s 0.1s ease;
+  transition: width 0.35s cubic-bezier(0.67, 0.99, 0.62, 1.53), background-color 0.25s 0.1s ease;
 }
 .btn .button-text {
   font-weight: 400;
@@ -150,9 +152,13 @@ body {
 }
 .btn .button-text, .btn .button-icon {
   color: var(--primary);
-  transition: color 0.2s 0.1s linear, right 0.2s linear;
+  transition: color 0.2s 0.1s linear, right 0.15s linear;
 }
 
+.read-more {
+  width: 17rem;
+  text-align: end;
+}
 .read-more:hover .button-read-more {
   width: 12.75rem;
   padding: 1.4166666667rem;
